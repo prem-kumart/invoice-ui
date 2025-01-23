@@ -1,0 +1,105 @@
+<form [formGroup]="invoice_form" (submit)="onSubmit()">
+    
+
+    <!-- Bill To Address -->
+    <div class="address-form" formGroupName="bill_from">
+        <label>Street Address</label>
+        <mat-form-field>
+            <input matInput   name="streetAddress" type="text" formControlName="streetAddress"/>
+        </mat-form-field>
+
+        <label>City</label>
+        <mat-form-field>
+            <input matInput name="city" type="text" formControlName="city"/>
+        </mat-form-field>
+
+        <label>Postal Code</label>
+        <mat-form-field>
+            <input matInput name="postalCode" type="text" formControlName="postalcode"/>
+        </mat-form-field>
+
+        <label>Country</label>
+        <mat-form-field>
+            <input matInput name="coutry" type="text" formControlName="country"/>
+        </mat-form-field>
+    </div>
+
+
+     <!-- Bill From Adress -->
+    <div class="address-form" formGroupName="bill_to">
+
+        <label>Client Name</label>
+        <mat-form-field>
+            <input matInput   name="clientName" type="text" formControlName="clientName"/>
+        </mat-form-field>
+
+        <label>Client Email</label>
+        <mat-form-field>
+            <input matInput   name="clientEmail" type="text" formControlName="clientEmail"/>
+        </mat-form-field>
+       
+        <label>Street Address</label>
+        <mat-form-field>
+            <input matInput   name="streetAddress" type="text" formControlName="streetAddress"/>
+        </mat-form-field>
+
+        <label>City</label>
+        <mat-form-field>
+            <input matInput name="city" type="text" formControlName="city"/>
+        </mat-form-field>
+
+        <label>Postal Code</label>
+        <mat-form-field>
+            <input matInput name="postalCode" type="text" formControlName="postalcode"/>
+        </mat-form-field>
+
+        <label>Country</label>
+        <mat-form-field>
+            <input matInput name="coutry" type="text" formControlName="country"/>
+        </mat-form-field>
+    </div>
+
+
+    <!-- Invoice Date and Payment Terms -->
+    <div class="invoice-details" formGroupName="invoice_details" >
+        
+        <label>Invoice Date</label>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" formControlName="invoiceDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <label>Invoice Terms</label>
+          <mat-form-field>
+            <select matNativeControl required formControlName="paymentTerms">
+              <option value="Net 1 day">Net 1 day</option>
+              <option value="Net 7 days">Net 7 days</option>
+              <option value="Net 14 days">Net 14 days</option>
+              <option value="Net 30 days">Net 30 days</option>
+            </select>
+          </mat-form-field>
+    </div>
+
+
+    <label>Project Description</label>s
+    <mat-form-field>
+        <input matInput   name="projectDescription" type="text" formControlName="projectDescription"/>
+    </mat-form-field>
+
+    <div *itemDirective="newItemFormRequest">
+    
+    </div>
+   
+    
+    <div>
+        <button type="button" mat-flat-button (click)="addNewItemForm()">+ Add Item Form</button>
+    </div>
+    
+
+   
+   
+
+   <button type="submit"  (click)="submitItems()" >Form Submit </button>
+</form>

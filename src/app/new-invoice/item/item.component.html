@@ -1,0 +1,37 @@
+<p>This is the Item List</p>
+
+<form  [formGroup]="itemForm" (submit)="onItemFormSubmit()">
+
+    <div class="item-container">
+    <label>Item Name</label>
+    <mat-form-field>
+        <input matInput name="itemName" type="text" formControlName="itemName">
+      </mat-form-field>
+
+      <label>Qty.</label>
+      <mat-form-field>   
+        <input matInput name="quantity" type="number" formControlName="quantity">
+      </mat-form-field>
+
+
+
+      <label>Price</label>
+      <mat-form-field> 
+        <input matInput name="price" type="number" formControlName="price">
+      </mat-form-field>
+
+         <div>
+                <p>Total Price</p>
+                <p>0.0</p>
+         </div>
+
+
+         <button type="submit">item-submit</button>
+    </div>
+
+    <button (click)="deleteItemForm()">
+       
+    </button>
+    
+</form>
+
